@@ -1,0 +1,21 @@
+FROM docker.io/library/debian:11
+
+ENV NAME=debian-toolbox VERSION=11
+LABEL com.github.containers.toolbox="true" \
+      com.redhat.component="$NAME" \
+      name="$NAME" \
+      version="$VERSION" \
+      usage="This image is meant to be used with the toolbox command" \
+      summary="Base image for creating Debian toolbox containers" \
+      maintainer="Caseraw"
+
+RUN apt-get update && \
+    apt-get -y install sudo libcap2-bin && \
+    apt-get clean
+
+RUN sed -i -e 's/ ALL$/ NOPASSWD:ALL/' /etc/sudoers
+
+RUN touch /etc/localtime
+RUN echo VARIANT_ID=container >> /etc/os-release
+
+CMD /bin/bash
