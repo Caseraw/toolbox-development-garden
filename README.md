@@ -21,6 +21,7 @@ skopeo
     - [37](fedora/37/)
 - [RHEL](rhel/)
     - [ubi8.6](rhel/ubi8.6/)
+    - [ubi8.6 - python3](rhel/ubi8.6-python3/)
 - [Debian](debian/)
     - [11](debian/11/)
 - [Ubuntu](ubuntu/)
